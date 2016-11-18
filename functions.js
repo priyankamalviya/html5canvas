@@ -2,22 +2,16 @@ window.onload = function() {
   var canvas = document.getElementById("canvas"),
       context = canvas.getContext("2d");
 
-  //var gradient = context.createLinearGradient(100, 100, 200, 200);
-  //
-  // gradient.addColorStop(0, "red");
-  // gradient.addColorStop(0.5, "green");
-  // gradient.addColorStop(1,"blue");
-  //
-  // context.fillStyle = gradient;
-  // context.fillRect(0, 0, 1000, 1000);
-var gradient = context.createRadialGradient(100, 100,0, 100, 100, 50);
+  context.fillStyle = "#cccccc";
+  context.fillRect(0, 0, canvas.width, canvas.height);
+  context.fillStyle = "black";
 
- gradient.addColorStop(0, "white");
- gradient.addColorStop(1,"lightcoral");
+  context.font =" 50px Arial";
+  //context.textAlign = "right";
+  context.fillText("Hello, world", 150, 150);
 
-context.fillStyle = gradient;
-context.beginPath();
+  var textMetrics = context.measureText("Hello, world");
+  width = textMetrics.width;
 
-context.arc(100, 100, 50, 0, Math.PI * 2, false);
-context.fill();
-};
+  context.strokeRect(150, 150, width, -50);
+  };
