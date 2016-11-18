@@ -1,38 +1,23 @@
 window.onload = function() {
   var canvas = document.getElementById("canvas"),
-      context = canvas.getContext("2d"),
-      width = canvas.width = 600,
-      height = canvas.height = 600;
+      context = canvas.getContext("2d");
 
-  context.lineCap = "round";
-  context.lineJoin = "round";
-  context.miterLimit = 1;
+  //var gradient = context.createLinearGradient(100, 100, 200, 200);
+  //
+  // gradient.addColorStop(0, "red");
+  // gradient.addColorStop(0.5, "green");
+  // gradient.addColorStop(1,"blue");
+  //
+  // context.fillStyle = gradient;
+  // context.fillRect(0, 0, 1000, 1000);
+var gradient = context.createRadialGradient(100, 100,0, 100, 100, 50);
 
-  context.lineWidth = 20;
-  context.strokeStyle = "#999999";
-  draw();
+ gradient.addColorStop(0, "white");
+ gradient.addColorStop(1,"lightcoral");
 
+context.fillStyle = gradient;
+context.beginPath();
 
-  //context.fillStyle = "red";
-
-  context.lineWidth = 1;
-  context.strokeStyle = "#ff0000";
-  draw();
-
-  function draw() {
-    context.beginPath();
-    context.moveTo(50, 50);
-    context.lineTo(150, 50);
-    context.stroke();
-
-    context.beginPath();
-    context.rect(200, 200, 100, 100);
-    context.stroke();
-
-    context.beginPath();
-    context.moveTo(390, 500);
-    context.lineTo(400, 400);
-    context.lineTo(410, 500);
-    context.stroke();
-  }
+context.arc(100, 100, 50, 0, Math.PI * 2, false);
+context.fill();
 };
