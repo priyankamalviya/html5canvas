@@ -1,42 +1,38 @@
-window.onload = function(){
-  //id
+window.onload = function() {
   var canvas = document.getElementById("canvas"),
-      context = canvas.getContext("2d");
-      // for(var x=1;x<=600;x++){
-      //   var y = 300+ Math.sin(x*0.03) * 300;
-      //   context.lineTo(x,y);
-      // }
-      // var p0 = {
-      //   x: Math.random() * 600,
-      //   y: Math.random() * 600
-      // },
-      // p1={
-      //   x: Math.random() * 600,
-      //   y: Math.random() * 600
-      // },
-      // p2={
-      //   x: Math.random() * 600,
-      //   y: Math.random() * 600
-      // },
-      // p3={
-      //   x: Math.random() * 600,
-      //   y: Math.random() * 600
-      // };
-      context.beginPath();
-//       context.moveTo(p0.x, p0.y);
-//       context.quadraticCurveTo(p1.x, p1.y, p2.x, p2.y);
-//       context.bezierCurveTo(p1.x, p1.y, p2.x, p2.y, p3.x, p3.y);
-//       context.stroke();
-//
-//       drawPoint(p0);
-//       drawPoint(p1);
-//       drawPoint(p2);
-//       drawPoint(p3);
-//
-//       function drawPoint(p){
-//         context.fillRect(p.x-4, p.y-4, 8, 8);
-//       }
+      context = canvas.getContext("2d"),
+      width = canvas.width = 600,
+      height = canvas.height = 600;
 
-context.arc(400, 300, 200, 0, Math.PI * 2);
-context.stroke();
- };
+  context.lineCap = "round";
+  context.lineJoin = "round";
+  context.miterLimit = 1;
+
+  context.lineWidth = 20;
+  context.strokeStyle = "#999999";
+  draw();
+
+
+  //context.fillStyle = "red";
+
+  context.lineWidth = 1;
+  context.strokeStyle = "#ff0000";
+  draw();
+
+  function draw() {
+    context.beginPath();
+    context.moveTo(50, 50);
+    context.lineTo(150, 50);
+    context.stroke();
+
+    context.beginPath();
+    context.rect(200, 200, 100, 100);
+    context.stroke();
+
+    context.beginPath();
+    context.moveTo(390, 500);
+    context.lineTo(400, 400);
+    context.lineTo(410, 500);
+    context.stroke();
+  }
+};
