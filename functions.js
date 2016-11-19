@@ -1,17 +1,11 @@
 window.onload = function() {
   var canvas = document.getElementById("canvas"),
-      context = canvas.getContext("2d");
+  context = canvas.getContext("2d"),
+  //image= document.getElementById("dog");
+  image = document.createElement("img");
 
-  context.fillStyle = "#cccccc";
-  context.fillRect(0, 0, canvas.width, canvas.height);
-  context.fillStyle = "black";
-
-  context.font =" 50px Arial";
-  //context.textAlign = "right";
-  context.fillText("Hello, world", 150, 150);
-
-  var textMetrics = context.measureText("Hello, world");
-  width = textMetrics.width;
-
-  context.strokeRect(150, 150, width, -50);
-  };
+image.src = "http://bit-101.com/dog.jpg";
+image.addEventListener("load", function(){
+  context.drawImage(image,10,0)
+});
+};
