@@ -2,30 +2,14 @@ window.onload = function() {
    var canvas = document.getElementById("canvas"),
    context = canvas.getContext("2d");
 
-   var num = 20;
-   context.translate(300, 300);
-   for(var i = 0; i<num; i++){
-     context.rotate(Math.PI * 2/ num);
-     context.beginPath();
-     context.arc(100, 0, 10, 0, Math.PI * 2);
-     context.fill();
+   var imageData = context.getImageData(0, 0, 600, 600);
+   for(var x =100; x<200; x++){
+     for(var y = 100; y<200; y++){
+       var index = (y * imageData.width + x)* 4;
+       imageData.data[index] = 255;
+       imageData.data[index+3] = 255;
+     }
    }
-
-  //  context.rotate(Math.PI / 4);
-  //  context.translate(200, 0);
-  //  context.fillRect(0, 0, 100, 100);
-
-  //  context.translate(100,100);
-  //  context.fillRect(0,0,100,100);
-
-// context.scale(2,2);
-//    for(var j =0; j<10; j++){
-//      context.save();
-//    for(var i =0; i<10; i++){
-//      context.fillRect(0,0,30,30);
-//      context.translate(40,0);
-//    }
-//    context.restore();
-//    context.translate(0,40);
-//  }
+   context.fillRect(0,0,600,600);
+   context.putImageData(imageData, 0, 0, 100, 100, 100, 100);
 };
