@@ -1,7 +1,8 @@
 window.onload = function() {
    var canvas = document.getElementById("canvas"),
    context = canvas.getContext("2d"),
-   xpos = 0;
+   angle = 0;
+   //xpos = 0;
 
   //  setInterval(function(){
   //    draw(xpos);
@@ -14,10 +15,16 @@ window.onload = function() {
 
  function draw(){
      context.clearRect(0, 0, 600, 600);
-     context.beginPath();
-     context.arc(xpos, 300, 20, 0, Math.PI * 2);
-     context.fill();
-     xpos++;
+     context.save();
+     context.translate(300, 300);
+     context.rotate(angle);
+     context.fillRect(-50, -50, 100, 100);
+     angle += 0.1;
+     context.restore();
+    //  context.beginPath();
+    //  context.arc(xpos, 300, 20, 0, Math.PI * 2);
+    //  context.fill();
+    //  xpos++;
      //requestAnimationFrame(draw);
    }
 };
