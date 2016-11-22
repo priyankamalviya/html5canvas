@@ -17,6 +17,8 @@ window.onload = function() {
      context.clearRect(0, 0, 600, 600);
      context.save();
      context.translate(300, 300);
+     var scale = Math.sin(angle) +1;
+     context.scale(scale,scale);
      context.rotate(angle);
      context.fillRect(-50, -50, 100, 100);
      angle += 0.1;
